@@ -1,23 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const { getRestaurants, getMenu, createRestaurant } = require('../controllers/restaurantController');
+const { auth, admin } = require('../middleware/auth');
+const { 
+    createRestaurant, 
+    getRestaurants, 
+    getMenu,
+    updateRestaurantStatus 
+} = require('../controllers/restaurantController');
 
-// Create a new restaurant
-router.post('/', (req, res, next) => {
-    console.log('POST /api/restaurants route hit');
-    createRestaurant(req, res, next);
-});
+// Create a new restaurant (admin only)
+router.post('/', auth, admin, createRestaurant);
 
 // Get all restaurants
-router.get('/', (req, res, next) => {
-    console.log('GET /api/restaurants route hit');
-    getRestaurants(req, res, next);
-});
+router.get('/', getRestaurants);
 
 // Get restaurant menu by ID
-router.get('/:id/menu', (req, res, next) => {
-    console.log('GET /api/restaurants/:id/menu route hit');
-    getMenu(req, res, next);
-});
+router.get('/:id/menu', getMenu);
+
+// Update restaurant status (admin only)
+router.patch('/:id/status', auth, admin, updateRestaurantStatus);
 
 module.exports = router; 

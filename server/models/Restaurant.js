@@ -16,6 +16,10 @@ const menuItemSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true
+    },
+    image: {
+        type: String,
+        default: ''
     }
 });
 
@@ -36,10 +40,18 @@ const restaurantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    phone: {
+        type: String,
+        default: ''
+    },
     menu: [menuItemSchema],
     rating: {
         type: Number,
         default: 0
+    },
+    isActive: {
+        type: Boolean,
+        default: true
     }
 }, {
     timestamps: true

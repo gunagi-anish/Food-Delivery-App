@@ -1,0 +1,147 @@
+.menu-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.menu-container h2 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.inactive-notice {
+  background-color: var(--danger-color);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.no-items {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-item {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item-details {
+  margin-bottom: 1rem;
+}
+
+.menu-item h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.price {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.description {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.add-to-cart-btn:hover:not(.disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.add-to-cart-btn.disabled {
+  background-color: var(--border-color);
+  color: var(--text-light);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: var(--text-light);
+}
+
+.error {
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.error h3 {
+  color: var(--danger-color);
+  margin-bottom: 1.5rem;
+}
+
+.error button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.error button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .menu-container {
+    margin: 1rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+} 

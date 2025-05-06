@@ -1,0 +1,664 @@
+.admin-panel {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.admin-panel h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.admin-tabs button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.admin-tabs button.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.admin-tabs button:hover:not(.active) {
+  background-color: var(--border-color);
+}
+
+.orders-section,
+.restaurants-section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.order-card,
+.restaurant-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.order-card:hover,
+.restaurant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-header h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.order-header p {
+  margin: 0.25rem 0;
+  color: var(--text-light);
+}
+
+.order-status {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-preparing {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.status-ready {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-delivered {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.order-items {
+  margin: 1rem 0;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.item-price {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--border-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.total-label {
+  color: var(--text-color);
+}
+
+.total-amount {
+  color: var(--primary-color);
+}
+
+.order-actions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.order-actions select {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: var(--white);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.order-actions select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.delete-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.restaurant-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.restaurant-card h4 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.restaurant-card p {
+  margin: 0;
+  color: var(--text-light);
+}
+
+.restaurant-card p strong {
+  color: var(--text-color);
+}
+
+.restaurant-actions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.restaurant-actions button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.restaurant-actions button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.restaurant-actions button.updating {
+  position: relative;
+  color: transparent;
+}
+
+.restaurant-actions button.updating::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--white);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.restaurant-actions button.activate {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.restaurant-actions button.activate:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.restaurant-actions button.deactivate {
+  background-color: var(--danger-color);
+  color: var(--white);
+}
+
+.restaurant-actions button.deactivate:hover:not(:disabled) {
+  background-color: var(--danger-hover);
+  transform: translateY(-2px);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.error h3 {
+  color: var(--danger-color);
+  margin-bottom: 1.5rem;
+}
+
+.error button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.error button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .admin-panel {
+    margin: 1rem;
+  }
+
+  .order-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .item-price {
+    margin-top: 0.5rem;
+  }
+}
+
+.restaurant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.restaurant-header h4 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.status {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status.inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.edit-menu-btn {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.edit-menu-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.menu-management {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.menu-management h5 {
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.add-menu-item-form {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--background-color);
+  border-radius: 8px;
+}
+
+.add-menu-item-form input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.add-menu-item-form button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.add-menu-item-form button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list-item {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--background-color);
+  border-radius: 8px;
+}
+
+.menu-list-item span {
+  color: var(--text-color);
+}
+
+.edit-menu-item-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.edit-menu-item-form input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.edit-menu-item-form button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.edit-menu-item-form button[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.edit-menu-item-form button[type="button"] {
+  background-color: var(--danger-color);
+  color: var(--white);
+}
+
+.edit-menu-item-form button:hover {
+  transform: translateY(-2px);
+}
+
+.edit-menu-item-form button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+}
+
+.edit-menu-item-form button[type="button"]:hover {
+  background-color: var(--danger-hover);
+}
+
+.restaurants-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.restaurants-header h3 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.create-restaurant-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.create-restaurant-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.new-restaurant-form {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.new-restaurant-form h4 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.new-restaurant-form form {
+  display: grid;
+  gap: 1rem;
+}
+
+.new-restaurant-form input,
+.new-restaurant-form textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.new-restaurant-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.new-restaurant-form input:focus,
+.new-restaurant-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background-color: var(--danger-color);
+  color: var(--white);
+}
+
+.cancel-btn:hover {
+  background-color: var(--danger-hover);
+  transform: translateY(-2px);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+} 
